@@ -1,0 +1,10 @@
+apt-get install openssh-server
+update-rc.d -f ssh remove
+update-rc.d -f ssh defaults
+ cd /etc/ssh/
+mkdir key_backup
+mv ssh_host_* key_backup/
+dpkg-reconfigure openssh-server
+edit /etc/ssh/sshd_config    PermitRootLogin yes
+service ssh restart
+update-rc.d -f ssh enable 2 3 4 5
