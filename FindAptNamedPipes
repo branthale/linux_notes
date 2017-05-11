@@ -1,18 +1,18 @@
-cobalt strike finding
+Finding APT that uses named pipes 
 
-Pipes
+List Named Pipes on windows with Powershell
 
 $pipeName = "testpipe"
 $delPipe = [System.IO.Directory]::GetFiles("\\.\pipe\") | where { $_ -match $pipeName }
 
-$delPipe = [System.IO.Directory]::GetFiles("\\.\pipe\") 
-
+[System.IO.Directory]::GetFiles("\\.\pipe\") 
+get-childitem \\.\pipe\
 
 
 Hash processes
 
 $bobbob = get_process;$($bobbob).path | foreach { If ($_ -ne "" ) {Get-FileHash $_ }}
- 
+
 $remaining = "1”
 Do {
 $basehash = import-csv c:\basehash.csv
