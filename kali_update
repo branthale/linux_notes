@@ -1,0 +1,7 @@
+apt-get --allow-releaseinfo-change update
+
+wget https://http.kali.org/kali/pool/main/k/kali-archive-keyring/kali-archive-keyring_2018.1_all.deb
+apt install ./kali-archive-keyring_2018.1_all.deb
+
+02proxy    /etc/apt/apt.d/02proxy
+Acquire::http::Proxy "http://192.168.1.190:3142";
